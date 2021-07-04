@@ -5,7 +5,6 @@ txtMin = document.getElementById('txtMin');
 txtHour = document.getElementById('txtHour');
 txtError = document.getElementById('txtError');
 youtubevid = document.getElementById('youtubevid')
-// youtubevid.style.display = "none";
 
 function validURL(str) {
   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -49,7 +48,7 @@ btnResult.addEventListener('click', function() {
 	hour = txtHour.value;
 	if (second == ""){
 		second = ""
-    } else {
+    	} else {
 		second = second + "s"
 	}
 	if (minute == ""){
@@ -75,7 +74,6 @@ btnResult.addEventListener('click', function() {
 			return;
 		} else {
 			getId = youtube_parser(url);
-			console.log(getId)
 			if(url.includes("t=")){
 				txtError.style.color = "red";
 				txtError.innerHTML = "URL already have a time";
