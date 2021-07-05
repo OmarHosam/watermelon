@@ -7,7 +7,8 @@ txtError = document.getElementById('txtError');
 youtubevid = document.getElementById('youtubevid')
 check = document.getElementById('check');
 genLink = document.getElementById('genLink');
-copybutton = document.getElementById('copy-button')
+copybutton = document.getElementById('copy-button');
+tooltip = document.getElementById("myTooltip");
 
 function validURL(str) {
   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -42,11 +43,13 @@ function embed(){
 		txtError.style.display = "block"
 		youtubevid.style.display = "none";
 		txtError.innerHTML = "Invalid URL";
+		tooltip.innerHTML = "Copy to Clipboard";
 	} else {
 		txtError.innerHTML = "";
 		btnResult.style.display = "block";
 		youtubevid.style.display = "block";
 		youtubevid.src = "https://www.youtube.com/embed/" + id + "?controls=2";
+		tooltip.innerHTML = "Copy to Clipboard";
 	}
 }
 check.addEventListener('click', function() {
@@ -70,6 +73,7 @@ function copyToClipboard(text) {
 }
 copybutton.addEventListener('click', function() {
 	copyToClipboard(txtError.value);
+	tooltip.innerHTML = "Copied into Clipboard";
 });
 btnResult.addEventListener('click', function() {
 	url = txtUrl.value;
