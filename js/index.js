@@ -43,6 +43,8 @@ function embed(){
 		txtError.style.display = "block"
 		youtubevid.style.display = "none";
 		txtError.innerHTML = "Invalid URL";
+		genLink.style.display = "none";
+		copybutton.style.display = "none";
 		tooltip.innerHTML = "Copy to Clipboard";
 	} else {
 		txtError.innerHTML = "";
